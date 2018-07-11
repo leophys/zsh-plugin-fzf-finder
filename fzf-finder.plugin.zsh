@@ -1,7 +1,11 @@
 if [[ $commands[bat] ]]; then
-    CAT="bat --color always"
+    CAT='bat --color always {}'
 else
-    CAT="cat"
+    CAT='cat {}'
+fi
+
+if [[ -z $EDITOR ]]; then
+    EDITOR=vim
 fi
 
 if [[ $commands[fzf] ]]; then
@@ -13,9 +17,13 @@ if [[ $commands[fzf] ]]; then
             --ansi \
             --reverse \
             --toggle-sort=ctrl-r \
-            --preview 'bat --color always {}' \
+            --preview $CAT \
             )" \
-        && vim "${target}"
+        && if [[ -z $TMUX ]]; then \
+            $EDITOR "${target}"; \
+         else \
+            tmux new-window $EDITOR "${target}"; \
+         fi
         local ret=$?
         zle reset-prompt
           typeset -f zle-line-init >/dev/null && zle zle-line-init
