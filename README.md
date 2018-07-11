@@ -14,6 +14,10 @@ The quick jump functionality is bound on ALT-f shortcut.
 antigen bundle leophys/zsh-plugin-fzf-finder
 ```
 
+##Screenshot
+
+![Example](https://github.com/leophys/zsh-plugin-fzf-finder/blob/master/preview.png)
+
 [ael]: https://github.com/ael-code
 [0]: https://github.com/ael-code/zsh-plugin-fasd-fzf
 [1]: https://github.com/junegunn/fzf
