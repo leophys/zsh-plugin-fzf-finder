@@ -30,5 +30,5 @@ if [[ $commands[fzf] ]]; then
         return $ret
     }
     zle -N fzf-find-widget
-    bindkey '\ef' fzf-find-widget
+    bindkey '\ee' fzf-find-widget
 fi
