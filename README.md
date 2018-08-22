@@ -6,7 +6,7 @@ A zsh plugin to search in the local tree of subdirectories for files (just files
 
 It is powered by [fzf][1] and optionally [bat][2] (otherwise falls back to `cat`).
 
-The quick jump functionality is bound on ALT-f shortcut.
+The quick jump functionality is bound on ALT-e shortcut.
 
 ## Install
 ### Antigen
