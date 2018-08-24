@@ -17,9 +17,9 @@ fzf-finder-widget() {
         --preview $FZF_FINDER_CAT \
         )" \
     && if [[ -z $TMUX ]]; then \
-        $FZF_FINDER_EDITOR "${target}"; \
+        ${FZF_FINDER_EDITOR:-vim} "${target}"; \
      else \
-        tmux new-window ${EDITOR:-vim} "${target}"; \
+        tmux new-window ${FZF_FINDER_EDITOR:-vim} "${target}"; \
      fi
     local ret=$?
     zle reset-prompt
