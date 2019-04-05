@@ -23,7 +23,12 @@ fzf-finder-widget-editor() {
     && if [[ -z $TMUX ]]; then \
         ${FZF_FINDER_EDITOR:-vim} "${target}"; \
      else \
-        tmux new-window ${FZF_FINDER_EDITOR:-vim} "${target}"; \
+        local this_session
+        local target
+        target_name=$(basename target)
+        this_session=$(tmux display-message -p '#S')
+        tmux new-window -t ${this_session} -n ${target_name} -d ${FZF_FINDER_EDITOR:-vim} "${target}"; \
+        tmux select-window -t ${target_name}
      fi
     local ret=$?
     zle reset-prompt
