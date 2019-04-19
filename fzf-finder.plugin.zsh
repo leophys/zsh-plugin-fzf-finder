@@ -25,7 +25,7 @@ fzf-finder-widget-editor() {
      else \
         local this_session
         local target_name
-        target_name=$(basename target)
+        target_name=$(basename ${target})
         this_session=$(tmux display-message -p '#S')
         tmux new-window -t ${this_session} -n ${target_name} -d ${FZF_FINDER_EDITOR:-vim} "${target}"; \
         tmux select-window -t ${target_name}
