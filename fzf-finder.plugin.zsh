@@ -54,6 +54,6 @@ fzf-finder-widget-pager() {
 }
 
 zle -N fzf-finder-widget-editor
-bindkey ${FZF_FINDER_BINDKEY:-'\ee'} fzf-finder-widget-editor
+bindkey ${FZF_FINDER_EDITOR_BINDKEY:-'\ee'} fzf-finder-widget-editor
 zle -N fzf-finder-widget-pager
-bindkey ${FZF_FINDER_BINDKEY:-'\er'} fzf-finder-widget-pager
+bindkey ${FZF_FINDER_PAGER_BINDKEY:-'\er'} fzf-finder-widget-pager
