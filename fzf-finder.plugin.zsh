@@ -8,7 +8,23 @@ if [[ -z $FZF_FINDER_PAGER ]]; then
     (( $+commands[bat] )) && FZF_FINDER_PAGER='bat' || FZF_FINDER_PAGER='less'
 fi
 
-fzf-finder-find() { (( $+commands[fd] )) && $commands[fd] -t f || find * -type f -not -path './.git/*\' }
+fzf-finder-find() { 
+    if (( $+commands[fd] )); then 
+        if (( $+FZF_FINDER_FD_OPTS )); then
+            FINDER_OPTS=$FZF_FINDER_FD_OPTS
+        else 
+            FINDER_OPTS='-t f'
+        fi
+        $commands[fd] $(echo $FINDER_OPTS ) 
+    else 
+        if (( $+FZF_FINDER_FIND_OPTS )); then
+            FINDER_OPTS=$FZF_FINDER_FIND_OPTS
+        else
+            FINDER_OPTS="-type f -not -path './.git/*\'"  
+        fi
+        find * $(echo $FINDER_OPTS)
+    fi
+}
 
 fzf-finder-widget-editor() {
     local target

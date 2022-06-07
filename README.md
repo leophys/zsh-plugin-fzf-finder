@@ -16,6 +16,9 @@ The quick jump functionality is bound on
 but can be overridden by exporting `FZF_FINDER_EDITOR_BINDKEY` and/or
 `FZF_FINDER_PAGER_BINDKEY` before sourcing
 
+Custom arguments for `fd` and `find` can be passed by setting respectively `FZF_FINDER_FD_OPTS` and `FZF_FINDER_FIND_OPTS`.
+For example, adding `export FZF_FINDER_FD_OPTS="--hidden -t f"` to your `.zshrc` will make `fd` search for hidden files.
+
 ## Install
 ### Antigen
 ```
